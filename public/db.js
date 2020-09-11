@@ -1,5 +1,5 @@
 let db
-const request = indexedDB.open('todo', 1)
+const request = indexedDB.open('budget', 1)
 
 request.onupgradeneeded = event => {
   db = event.target.result
@@ -32,7 +32,7 @@ const checkDatabase = () => {
 
   getAll.onsuccess = () => {
     if (getAll.result.length > 0) {
-      fetch('/api/items/bulk', {
+      fetch('/api/transaction/bulk', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
